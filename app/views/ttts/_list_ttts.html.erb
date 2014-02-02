@@ -1,0 +1,21 @@
+
+  <% @ttts.each do |ttt| %>
+    <% if ttt != [] %>
+      <td><%= ttt.name %></td>
+      <td><%= link_to 'Play', ttt %></td>
+      <td><%= link_to 'Edit', edit_ttt_path(ttt) %></td>
+      <td><%= link_to 'Destroy', ttt, method: :delete%></td>
+    <% end %>
+    <br>
+  <% end %>
+
+  <p>Available ones</p>
+  <% @avail_ttts.each do |ttt| %>
+    <% if ttt != [] %>
+      <td><%= ttt.name %></td>
+      <td><%= link_to 'Play', ttt %></td>
+    <% end %>
+    <br>
+  <% end %>
+
+  <%= link_to 'Crate new game', new_ttt_path %>

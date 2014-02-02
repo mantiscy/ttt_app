@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  p1: MyString
+  p2: MyString
+  completed: MyString
+  locked: MyString
+  opponent_username: MyString
+  opoonent_email: MyString
+
+two:
+  name: MyString
+  p1: MyString
+  p2: MyString
+  completed: MyString
+  locked: MyString
+  opponent_username: MyString
+  opoonent_email: MyString

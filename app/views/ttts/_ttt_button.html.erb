@@ -1,0 +1,7 @@
+
+<%if @game_states["#{position}".to_sym] == "" %>
+  <%= hidden_field_tag :pos, "#{position}"  %>
+  <%= f.submit "Click me!" %>
+<% else %>
+  <button><%=@game_states["#{position}".to_sym]%></button>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pos: MyString
+  player_id: MyString
+  turn_for_player_id: MyString
+
+two:
+  pos: MyString
+  player_id: MyString
+  turn_for_player_id: MyString
