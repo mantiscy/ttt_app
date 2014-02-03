@@ -1,5 +1,6 @@
 
 <%if @game_states["#{position}".to_sym] == "" %>
+<%= hidden_field_tag :pc_move, "n"  %>
   <%= hidden_field_tag :pos, "#{position}"  %>
   <%= f.submit "Click me!" %>
 <% else %>

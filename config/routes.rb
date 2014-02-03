@@ -3,6 +3,7 @@ TttApp::Application.routes.draw do
   resources :ttts
   get '/all_ttts', to: "ttts#all_ttts"
   post '/ttts/:id', to: "ttts#update", as: :update 
+  get '/ttts/comp/:id', to: "ttts#play_comp", as: :play_comp 
 
   resources :users
 

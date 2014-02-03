@@ -62,3 +62,25 @@
 
 
 </div>
+<br>
+<% if @ttt.turn_for_player_id == "-1" %>
+  <div class='grid_4 push_4'>
+    <%= form_for(@ttt, method: 'put') do |f| %>
+      
+        <%= hidden_field_tag :pc_move, 'y'  %>
+        <%= f.submit "Click for PC move!" %>
+
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+

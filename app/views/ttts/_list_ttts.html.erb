@@ -3,7 +3,7 @@
     <% if ttt != [] %>
       <td><%= ttt.name %></td>
       <td><%= link_to 'Play', ttt %></td>
-      <td><%= link_to 'Edit', edit_ttt_path(ttt) %></td>
+      <td><%= link_to 'Player Vs Comp', play_comp_path(ttt) %></td>
       <td><%= link_to 'Destroy', ttt, method: :delete%></td>
     <% end %>
     <br>
