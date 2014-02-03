@@ -14,9 +14,11 @@
     <% if @current_user.role == 'admin' %>
       <%= link_to 'Users', users_path %>
       <%= link_to 'All TTTs', all_ttts_path %>
+      <%= link_to 'TTTs', ttts_path %>
     <% end %>
     <%= link_to 'Logout', logout_path %>
-  <% else %>
+    <%= link_to 'TTTs', ttts_path %>
+  <% else %> 
     <%= link_to 'Login', login_path %>
   <% end %>
 
