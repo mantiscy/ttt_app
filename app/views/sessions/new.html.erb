@@ -1,17 +1,18 @@
-<h1>Log in</h1>
-
+<h1 class='header1'>Log in</h1>
+<hr>
 <%= form_tag sessions_path do %>
 
-  <div class="">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email]%>
-  </div>
-  <div class="">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>
+  <div class="grid_4 prefix_4 suffix_4">
+    <div class="grid_2 center_it"><%= label_tag :email %></div>
+    <div class="grid_2 center_it"><%= text_field_tag :email, params[:email]%></div>
 
-<%= link_to "Create Account", new_user_path %>
+  
+    <div class="grid_2 center_it"><%= label_tag :password %></div>
+    <div class="grid_2 center_it"><%= password_field_tag :password %></div>
+    <div class='clear'></div>
+  <div class="actions"><%= submit_tag "Log in" %></div>
+</div>
+<% end %>
+<hr>
+<h1 class='header1 create_acc'><%= link_to "Create Account", new_user_path %></h1>
 </div>

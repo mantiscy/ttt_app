@@ -1,0 +1,2 @@
+module GamesListsHelper
+end

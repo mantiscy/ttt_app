@@ -18,6 +18,7 @@ class Ability
         can :manage, User do |target_user|
           user.id == target_user.id
         end
+        can :read, GamesList
         # can :manage, Movie do |target_movie|
         #   user == target_movie.users.first
         # end
@@ -29,6 +30,7 @@ class Ability
         # end
     else
         can :create, User
+        can :read, GamesList
     end
   end
 

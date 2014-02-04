@@ -1,24 +1,36 @@
 
-
+<% if @pending_ttts != [] %>
   <h3 class='h3'>List of pending games</h3>
   <% @pending_ttts.each do |ttt| %>
     <% if ttt != [] %>
+    <div>
       <td class='ttt_name'><%= ttt.name %></td>
-      <td><%= link_to 'View State', ttt %></td>
+      <div class='link'>
+        <% if ttt.need_player == 'y' %>
+          <%= link_to 'Play Vs Computer', play_comp_path(ttt) %>
+        <% end %>
+        <%= link_to 'View State', ttt %>
+      </div>
+    </div>
     <% end %>
     <br>
   <% end %>
+<% end %>  
   
   <hr>
-
+<% if @avail_ttts != [] %>
   <h3 class='h3'>Available ones</h3>
   <% @avail_ttts.each do |ttt| %>
     <% if ttt != [] %>
       <td class='ttt_name'><%= ttt.name %></td>
-      <td><%= link_to 'Play', ttt %></td>
+      <div class='link'><%= link_to 'Play', ttt %></div>
     <% end %>
     <br>
   <% end %>
+  <hr>
+<% end %>
+
+  <h1 class='header1 create_acc'><%= link_to 'Create new game', new_ttt_path %></h1>
 
   <hr>
 
@@ -26,11 +38,11 @@
   <% @ttts.each do |ttt| %>
     <% if ttt != [] %>
       <td class='ttt_name'><%= ttt.name %></td>
-      <td><%= link_to 'View State', ttt %></td>
+      <td><%= link_to 'View Result', ttt %></td>
     <% end %>
     <br>
   <% end %>
 
-  <hr>
+  
 
-  <h3 class='h3'><%= link_to 'Crate new game', new_ttt_path %></h3>
+  

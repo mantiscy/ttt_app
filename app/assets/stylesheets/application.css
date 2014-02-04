@@ -181,6 +181,19 @@ Move to separate stylesheet if invalid CSS is a problem.
 
 /***************************************************************************************/
 
+.link a{
+  color: red;
+}
+
+.link a:visited{
+  color: red;
+}
+
+.link a:hover{
+  color: #ec7707;
+  background-color: white;
+}
+
 .ttt_btn{
   width: 140px;
   height: 100px; 
@@ -292,6 +305,7 @@ nav ul li:hover ul {
 
 hr{
   width: 350px;
+  margin-bottom: 15px;
 }
 
 .h3{
@@ -309,10 +323,12 @@ hr{
     margin-right: auto;
 }
 
+#error_explanation{
+  margin: auto;
+}
 
-.field{
- margin-left: auto;
-    margin-right: auto;
+.field_with_errors{
+  margin: auto;
 }
 
 .grid_12.show_users table{
@@ -322,6 +338,27 @@ hr{
 .grid_12.show_users table th{
   padding: 10px;
   font-weight: bold;
+}
+
+.grid_2.center_it{
+  margin: auto;
+}
+.actions{
+  margin-top: 15px;
+}
+
+.header1{
+  font-size: 20px;
+  margin: 15px;
+}
+
+.header1.create_acc a, a:visited, a:hover{
+  color: red;
+  background-color: white;
+}
+
+.header1.create_acc a:hover{
+  color: #ec7707;
 }
 
 

@@ -1,5 +1,5 @@
 class Ttt < ActiveRecord::Base
-  attr_accessible :completed, :locked, :name, :opponent_email, :opponent_username, :p1, :p2, :turn_for_player_id, :need_player, :winner, :p1_name, :p2_name
+  attr_accessible :completed, :locked, :name, :opponent_email, :opponent_username, :p1, :p2, :turn_for_player_id, :need_player, :winner, :p1_name, :p2_name, :games_list_id
 
   attr_accessor :last_move
 
@@ -157,7 +157,7 @@ class Ttt < ActiveRecord::Base
     if self.p1.to_i == user.id && self.p2.to_i > 0
       u = User.get_user(self.p2.to_i)
       return u
-    elsif self.p1.to_i > 0
+    elsif self.p2.to_i > 0
       u = User.get_user(self.p1.to_i)
       return u
     else

@@ -1,0 +1,13 @@
+<h3 class='h3'>List of games you can play</h3>
+  <% @games.each do |game| %>
+    <h3 class='h3'>
+      <td><div class='link'><%= link_to game.name, :controller => game.path.to_sym, :action => :index%></div></td>
+    </h3>
+    <br>
+
+  <% if @current_user == nil %>
+    <h3 class='h3'>
+      <div class='link'><%= link_to "Sign up", new_user_path %> now and enjoy some of the old classics</div>
+    </h3>
+  <% end %>
+  <% end %>

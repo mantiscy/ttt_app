@@ -7,6 +7,8 @@ TttApp::Application.routes.draw do
 
   resources :users
 
+  root to: "games_lists#index"
+
   get "/login", to: "sessions#create", as: :login
 
   get '/logout', to: "sessions#destroy", as: :logout

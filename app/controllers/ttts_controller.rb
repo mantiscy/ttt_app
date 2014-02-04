@@ -12,6 +12,7 @@ class TttsController < ApplicationController
   def all_ttts
     @ttts = Ttt.all
     @avail_ttts = Ttt.where("need_player = ?", 'y')
+    @pending_ttts = Ttt.where("completed = ?", 'n')
   end
 
   def new
