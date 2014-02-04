@@ -1,21 +1,36 @@
 
-  <% @ttts.each do |ttt| %>
+
+  <h3 class='h3'>List of prending games</h3>
+  <% @pending_ttts.each do |ttt| %>
     <% if ttt != [] %>
-      <td><%= ttt.name %></td>
-      <td><%= link_to 'Play', ttt %></td>
-      <td><%= link_to 'Player Vs Comp', play_comp_path(ttt) %></td>
-      <td><%= link_to 'Destroy', ttt, method: :delete%></td>
+      <td class='ttt_name'><%= ttt.name %></td>
+      <td><%= link_to 'View State', ttt %></td>
     <% end %>
     <br>
   <% end %>
+  
+  <hr>
 
-  <p>Available ones</p>
+  <h3 class='h3'>Available ones</h3>
   <% @avail_ttts.each do |ttt| %>
     <% if ttt != [] %>
-      <td><%= ttt.name %></td>
+      <td class='ttt_name'><%= ttt.name %></td>
       <td><%= link_to 'Play', ttt %></td>
     <% end %>
     <br>
   <% end %>
 
-  <%= link_to 'Crate new game', new_ttt_path %>
+  <hr>
+
+  <h3 class='h3'>List of my completed games</h3>
+  <% @ttts.each do |ttt| %>
+    <% if ttt != [] %>
+      <td class='ttt_name'><%= ttt.name %></td>
+      <td><%= link_to 'View State', ttt %></td>
+    <% end %>
+    <br>
+  <% end %>
+
+  <hr>
+
+  <h3 class='h3'><%= link_to 'Crate new game', new_ttt_path %></h3>

@@ -1,77 +1,98 @@
-<h1>Ttts#show</h1>
-<p>Find me in app/views/ttts/show.html.erb</p>
+
 
 <% flash.each do |key, msg| %>
   <%= content_tag :div, msg, :id => key %>
 <% end %>
 
-<div class='container_12 ttt_container'>
-  <div class='grid_4 a1'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'a1' } %>
-    <% end %>
-  </div>
+<p>Game: <%= @ttt.name %></p>
 
-  <div class='grid_4 a2'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'a2' } %>
-    <% end %>
-  </div>
+<%if @ttt.completed == 'y'%>
+  <p>Game "<%= @ttt.name %>" has finished</p>
+  <% if @ttt.winner_name == 'Draw' %>
+    <p>The game was a draw!</p>
+  <% elsif @ttt.winner_name == "PC" %>
+    <p>Computer are smarter than humans!</p>
+  <% else %>
+    <p>"<%= @ttt.winner_name %>" is the winner</p>
+  <% end %>
+<% else %>
+  <% if @ttt.turn_for_player_id.to_i > 0 %>
+    <p>Turn for <%= User.get_user(@ttt.turn_for_player_id.to_i).email %></p>
+  <% else %>
+    <p>Turn for Computer</p>
+  <% end %>
+<% end %>
 
-  <div class='grid_4 a3'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'a3' } %>
-    <% end %>
-  </div>
+<div class='grid_12 ttt_grid'>
+  
+    <div class='grid_2 prefix_3 column_one'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'a1' } %>
+      <% end %>
+    </div>
 
-  <div class='grid_4 b1'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'b1' } %>
-    <% end %>
-  </div>
+    <div class='grid_2 column_two'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'a2' } %>
+      <% end %>
+    </div>
 
-  <div class='grid_4 b2'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'b2' } %>
-    <% end %>
-  </div>
+    <div class='grid_2 suffix_3 column_three'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'a3' } %>
+      <% end %>
+    </div>
+  <div class='clear'></div>
 
-  <div class='grid_4 b3'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'b3' } %>
-    <% end %>
-  </div>
+  
+    <div class='grid_2 prefix_3 column_one'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'b1' } %>
+      <% end %>
+    </div>
 
-  <div class='grid_4 c1'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'c1' } %>
-    <% end %>
-  </div>
+    <div class='grid_2 column_two'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'b2' } %>
+      <% end %>
+    </div>
 
-  <div class='grid_4 c2'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'c2' } %>
-    <% end %>
-  </div>
+    <div class='grid_2 suffix_3 column_three'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'b3' } %>
+      <% end %>
+    </div>
+  <div class='clear'></div>
 
-  <div class='grid_4 c3'>
-    <%= form_for(@ttt, method: 'put') do |f| %>
-      <%= render partial: "ttt_button", locals: { f: f, position: 'c3' } %>
-    <% end %>
-  </div>
+    <div class='grid_2 prefix_3 column_one'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'c1' } %>
+      <% end %>
+    </div>
+
+    <div class='grid_2 column_two'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'c2' } %>
+      <% end %>
+    </div>
+
+    <div class='grid_2 suffix_3 column_three'>
+      <%= form_for(@ttt, method: 'put') do |f| %>
+        <%= render partial: "ttt_button", locals: { f: f, position: 'c3' } %>
+      <% end %>
+    </div>
+  <div class='clear'></div>
 
 
 </div>
-<br>
+
 <% if @ttt.turn_for_player_id == "-1" %>
-  <div class='grid_4 push_4'>
     <%= form_for(@ttt, method: 'put') do |f| %>
       
         <%= hidden_field_tag :pc_move, 'y'  %>
-        <%= f.submit "Click for PC move!" %>
+        <div class='container_12' ><button class='grid_2 push_5'>Click for PC Move</button></div>
 
     <% end %>
-  </div>
 <% end %>
 
 

@@ -1,5 +1,5 @@
 class Ttt < ActiveRecord::Base
-  attr_accessible :completed, :locked, :name, :opponent_email, :opponent_username, :p1, :p2, :user_ids, :turn_for_player_id, :need_player
+  attr_accessible :completed, :locked, :name, :opponent_email, :opponent_username, :p1, :p2, :user_ids, :turn_for_player_id, :need_player, :winner
 
   attr_accessor :last_move
 
@@ -93,6 +93,12 @@ class Ttt < ActiveRecord::Base
     self.completed == 'y'
   end
 
+  def set_winner(name, current_user)
+    self.winner_name = name
+    update_user_record(current_user)
+    self.save
+  end
+
   def winner(game_states)
 
     if game_states.fetch(:a1) == game_states.fetch(:a2) && game_states.fetch(:a1) == game_states.fetch(:a3) && game_states.fetch(:a1) != ""
@@ -127,4 +133,41 @@ class Ttt < ActiveRecord::Base
       
   end
 
+  private
+
+  def update_user_record(user)
+    user2 = get_other_player(user)
+    if user.email == self.winner_name
+      user.wins += 1
+      update_other_player(user2, 'losses') unless user2 == nil
+    elsif self.winner_name == 'Draw'
+      user.draws += 1
+      update_other_player(user2, 'draws') unless user2 == nil
+    else
+      user.losses += 1
+      update_other_player(user2, 'wins') unless user2 == nil
+    end
+    user.save
+  end
+
+  def get_other_player(user)
+    if self.p1.to_i == user.id && self.p2.to_i > 0
+      u = User.get_user(self.p2.to_i)
+      return u
+    elsif self.p1.to_i > 0
+      u = User.get_user(self.p1.to_i)
+      return u
+    else
+      return nil
+    end
+  end
+
+  def update_other_player(user2, key)
+    user2[key.to_sym] += 1
+    user2.save
+  end
+
 end
+
+
+

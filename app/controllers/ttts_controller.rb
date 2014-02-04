@@ -5,11 +5,13 @@ class TttsController < ApplicationController
   load_and_authorize_resource
   def index
     @ttts = current_user.ttts
-    @avail_ttts = Ttt.where("need_player = ?", 'y')
+    @pending_ttts = current_user.ttts.where("completed = ?", 'n')
+    @avail_ttts = Ttt.where("need_player = ? AND p1 != ?", 'y', current_user.id.to_s)
   end
 
   def all_ttts
     @ttts = Ttt.all
+    @avail_ttts = Ttt.where("need_player = ?", 'y')
   end
 
   def new
@@ -89,11 +91,14 @@ class TttsController < ApplicationController
               game.save
               if win == 'Draw'
                 flash[:notice] = "Game is a draw!"
+                game.set_winner("Draw", current_user)
               elsif game.p2 == "-1" && !game.states.last.p1
                 flash[:notice] = "PC has won the game!"
+                game.set_winner("PC", current_user)
               else
                 flash[:notice] = "#{current_user.email} has won the game!"  
-            end
+                game.set_winner("#{current_user.email}", current_user)
+              end
               redirect_to game
             else
               redirect_to game

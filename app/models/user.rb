@@ -13,4 +13,24 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
+  def self.get_user(id)
+    user = User.find_by_id(id)
+  end
+
+  def init_user
+    self.wins = 0
+    self.draws = 0
+    self.losses = 0
+  end
+
+  # def update_record(id1, id2, key)
+  #   unless id1 == -1  do
+  #     User.find_by_id(id1)[key.to_sym] += 1
+  #   end
+
+  #   unless id2 == -1  do
+  #     User.find_by_id(id2)[key.to_sym] += 1
+  #   end
+  # end
+
 end

@@ -24,6 +24,14 @@ body {
         margin-left: auto;
         margin-right: auto;
         width: 960px;
+        text-align: center;
+        margin-top: 100px;
+  border-radius: 10px;
+  opacity:0.85;
+  font-family: 'Helvetica';
+  /*color:white;*/
+  overflow: auto;
+  height:100%;
 }
 
 /* =Grid >> Global
@@ -168,4 +176,146 @@ Move to separate stylesheet if invalid CSS is a problem.
 .clearfix {
         zoom: 1;
 }
-- See more at: http://www.gridsystemgenerator.com/gs01.php?GridWidth=960&GridColumns=12&GridMarginLeft=10&GridMarginRight=10&sc=1#sthash.cElbI75y.dpuf
+
+
+
+/***************************************************************************************/
+
+.ttt_btn{
+  width: 140px;
+  height: 100px; 
+  margin: 0px; 
+  font-size: 50px; 
+  text-align: center;  
+}
+
+.grid_12.ttt_grid{
+  /*margin-left: 360px;*/
+  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-left: 35px;
+}
+
+.column_one{
+  /*text-align: right;*/
+  margin: 0px;
+}
+
+.column_two{
+ /* margin-left: -10px;
+  margin-right: -50px;*/
+  margin: 0px;
+}
+
+.column_three{
+  
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a:visited{
+  color:white;
+}
+
+nav a{
+  color: white;
+}
+
+nav a:hover{
+  color: #ec7707;
+}
+
+nav {
+  
+  background-color: black;
+  padding: 10px 4px 5px 0;
+  margin-bottom: 30px;
+  opacity:0.7;
+} 
+
+nav ul{
+list-style-type:none;
+/*padding:10px;*/
+text-align: left;
+}
+
+nav ul li{
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  margin: 10px;
+  font-size: 20px;
+  font-family: 'Audiowide', cursive;
+}
+nav ul li:visited{
+  color: white;
+}
+
+nav ul li ul{
+  padding: 0;
+  position: absolute;
+/*  top: 48px;*/
+  left: 0;
+  width: 250px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  padding: 15px 20px;
+  background: #000;
+}
+
+nav ul li ul li{
+
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+}
+
+nav ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+.right-nav{
+  float: right;
+  text-align: right;
+  font-family: 'Helvetica'
+}
+
+hr{
+  width: 350px;
+}
+
+.h3{
+  font-size: 15px;
+  padding: 10px;
+}
+
+.ttt_name{
+  font-size: 15px;
+  margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
