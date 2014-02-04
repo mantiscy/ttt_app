@@ -11,42 +11,32 @@
     </div>
   <% end %>
 
+  
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password %><br />
     <%= f.password_field :password, :autocomplete => :off %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, :autocomplete => :off %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :wins %><br />
-    <%= f.text_field :wins %>
-  </div>
-  <div class="field">
-    <%= f.label :losses %><br />
-    <%= f.text_field :losses %>
-  </div>
-  <div class="field">
-    <%= f.label :draws %><br />
-    <%= f.text_field :draws %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -5,6 +5,8 @@
 <% end %>
 
 <p>Game: <%= @ttt.name %></p>
+<p>Player1: <%= @ttt.p1_name %> uses "x"</p>
+<p>Player2: <%= @ttt.p2_name %> uses "o"</p>
 
 <%if @ttt.completed == 'y'%>
   <p>Game "<%= @ttt.name %>" has finished</p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203185650) do
+ActiveRecord::Schema.define(:version => 20140204133551) do
 
   create_table "states", :force => true do |t|
     t.string   "pos"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20140203185650) do
     t.string   "need_player"
     t.string   "turn_for_player_id"
     t.string   "winner_name"
+    t.string   "p1_name"
+    t.string   "p2_name"
   end
 
   create_table "ttts_users", :force => true do |t|

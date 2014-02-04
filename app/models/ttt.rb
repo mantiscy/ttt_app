@@ -1,5 +1,5 @@
 class Ttt < ActiveRecord::Base
-  attr_accessible :completed, :locked, :name, :opponent_email, :opponent_username, :p1, :p2, :user_ids, :turn_for_player_id, :need_player, :winner
+  attr_accessible :completed, :locked, :name, :opponent_email, :opponent_username, :p1, :p2, :turn_for_player_id, :need_player, :winner, :p1_name, :p2_name
 
   attr_accessor :last_move
 
@@ -10,6 +10,7 @@ class Ttt < ActiveRecord::Base
   def set_initial_settings(current_user)
     if need_player == nil
       self.p1 = current_user.id.to_s
+      self.p1_name = current_user.email
       self.completed = 'n'
       self.need_player = 'y'
       self.turn_for_player_id = self.p1
@@ -44,12 +45,14 @@ class Ttt < ActiveRecord::Base
 
   def set_player_2(current_user)
     self.p2 = current_user.id.to_s
+    self.p2_name = current_user.email
     self.need_player = 'n'
     self.users << current_user
     return   
   end
 
   def set_comp_player
+    self.p2_name = "PC"
     self.p2 = "-1"
     self.need_player = 'n'
     self.users << User.create(email: 'pc')

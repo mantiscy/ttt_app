@@ -15,6 +15,9 @@ class Ability
           user.id == target_ttt.p2.to_i
         end
         can :create, Ttt
+        can :manage, User do |target_user|
+          user.id == target_user.id
+        end
         # can :manage, Movie do |target_movie|
         #   user == target_movie.users.first
         # end
