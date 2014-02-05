@@ -76,12 +76,24 @@ class Ttt < ActiveRecord::Base
   def get_pc_move
     game_states = self.populate_game
     game_states.each do |pos, val|
-      if
-        val == ""
-        return pos
-      end
+      return pos if val==""
+    end
+
+    #return next_open_square(game_states)
+  end
+
+
+  def check_if_win_pos(game_states, pos, val)
+    game_states[pos] = 'o'
+    return true if winner(game_states)
+  end
+
+  def next_open_square
+    game_states.each do |pos, val|
+      return pos if game_states[:pos] = ""
     end
   end
+
 
   def set_turn
     if self.states.last.p1
