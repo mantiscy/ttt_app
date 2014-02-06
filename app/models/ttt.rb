@@ -75,27 +75,61 @@ class Ttt < ActiveRecord::Base
 
   def get_pc_move
     game_states = self.populate_game
-    open_positions = []
+    
     game_states.each do |pos, val|
-      open_positions << pos if val==""
+      return pos if check_if_win_pos(game_states, pos) 
     end
+    
+    return get_random_square(game_states)
 
-    return open_positions.sample
-
-    #return next_open_square(game_states)
   end
 
-
-  def check_if_win_pos(game_states, pos, val)
-    game_states[pos] = 'o'
-    return true if winner(game_states)
+  def check_if_win_pos(game_states, pos)
+    
+    gs = game_states.clone
+##
+    if gs[pos] == ""
+      gs[pos] = 'o'
+      return true if winner(gs)
+      gs[pos] = 'x'
+      return true if winner(gs)
+    else
+      return false
+    end
+    
   end
 
-  def next_open_square
+  def get_random_square(game_states)
+    positions = []
     game_states.each do |pos, val|
-      return pos if game_states[:pos] = ""
+      positions << pos if game_states[pos] == ""
     end
+    return positions.sample
   end
+
+  # def get_pc_move
+  #   game_states = self.populate_game
+  #   open_positions = []
+  #   game_states.each do |pos, val|
+  #     open_positions << pos if val==""
+  #   end
+
+  #   return open_positions.sample
+
+  #   #return next_open_square(game_states)
+  # end
+
+
+  # def check_if_win_pos(game_states, pos, val)
+  #   game_states[pos] = 'o'
+  #   return true if winner(game_states)
+  # end
+
+  # def next_open_square
+  #   game_states.each do |pos, val|
+  #     return pos if game_states[:pos] = ""
+  #   end
+  # end
 
 
   def set_turn
