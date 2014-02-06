@@ -1,4 +1,4 @@
-<h1>Listing users</h1>
+<h1 class='header1'>Current Users</h1>
 <div class='grid_12 show_users'>
 <table>
   <tr>
@@ -6,9 +6,6 @@
     <th>Email</th>
     <th>Last name</th>
     <th>Role</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Draws</th>
     <th>Username</th>
     <th></th>
     <th></th>
@@ -21,13 +18,10 @@
     <td><%= user.email %></td>
     <td><%= user.last_name %></td>
     <td><%= user.role %></td>
-    <td><%= user.wins %></td>
-    <td><%= user.losses %></td>
-    <td><%= user.draws %></td>
     <td><%= user.username %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class='opt'><%= link_to 'Show', user %></td>
+    <td class='opt'><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td class='opt'><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
@@ -35,4 +29,4 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+

@@ -4,13 +4,13 @@ class TttsController < ApplicationController
   
   load_and_authorize_resource
   def index
-    @ttts = current_user.ttts
+    @ttts = current_user.ttts.order(:created_at).page(params[:page])
     @pending_ttts = current_user.ttts.where("completed = ?", 'n')
     @avail_ttts = Ttt.where("need_player = ? AND p1 != ?", 'y', current_user.id.to_s)
   end
 
   def all_ttts
-    @ttts = Ttt.all
+    @ttts = Ttt.all.order(:created_at).page(params[:page])
     @avail_ttts = Ttt.where("need_player = ?", 'y')
     @pending_ttts = Ttt.where("completed = ?", 'n')
   end

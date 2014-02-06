@@ -20,6 +20,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.wins = 0
+    @user.losses = 0
+    @user.draws = 0
 
     if @user.save
       session[:user_id] = @user.id unless current_user

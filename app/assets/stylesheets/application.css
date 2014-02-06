@@ -361,6 +361,15 @@ hr{
   color: #ec7707;
 }
 
+.paginate{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.opt a{
+  margin:5px;
+}
 
 
 

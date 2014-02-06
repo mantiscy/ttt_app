@@ -75,9 +75,12 @@ class Ttt < ActiveRecord::Base
 
   def get_pc_move
     game_states = self.populate_game
+    open_positions = []
     game_states.each do |pos, val|
-      return pos if val==""
+      open_positions << pos if val==""
     end
+
+    return open_positions.sample
 
     #return next_open_square(game_states)
   end

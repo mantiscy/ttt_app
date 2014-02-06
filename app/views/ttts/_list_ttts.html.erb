@@ -19,7 +19,7 @@
   
   <hr>
 <% if @avail_ttts != [] %>
-  <h3 class='h3'>Available ones</h3>
+  <h3 class='h3'>Available games to join</h3>
   <% @avail_ttts.each do |ttt| %>
     <% if ttt != [] %>
       <td class='ttt_name'><%= ttt.name %></td>
@@ -42,6 +42,8 @@
     <% end %>
     <br>
   <% end %>
+
+  <div class='paginate'><%= paginate @ttts%></div>
 
   
 

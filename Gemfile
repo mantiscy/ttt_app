@@ -19,6 +19,7 @@ gem 'cancan'
 gem 'ransack'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'kaminari'
 
 
 # Gems used only for assets and not required
